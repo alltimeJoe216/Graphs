@@ -22,12 +22,30 @@ class Graph:
         return self.vertices[vertex_id]
 
     def remove_edge(self, v1, v2):
-        if v1 inself.vertices and v2 in self.vertices and v2 in self.vertices[v1]:
+        if v1 in self.vertices and v2 in self.vertices and v2 in self.vertices[v1]:
             self.vertices[v1].remove(v2)
         else: 
             raise IndexError("Vertices are not neighbors")
 
     def bft(self, starting_vertex):
+        # init
+        q = Queue()
+        q.enqueue(start)
+
+        #set for visited nodes
+        has_been_visited = set()
+
+        #ensure the queue is not empty
+        while q.size > 0:
+            # dequeue, add value to 'has_been_visited', apppend neighbors that aren't visited
+            vis = q.dequeue()
+
+            if vis not in has_been_visited:
+                vis.add(vis)
+                print(vis)
+                for neighbor in self.get_neighbors(vis):
+                    q.enqueue(neighbor)
+
         
 
     def dft(self, starting_vertex):
