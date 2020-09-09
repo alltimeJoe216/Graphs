@@ -30,30 +30,40 @@ class Graph:
     def bft(self, starting_vertex):
         # init
         q = Queue()
-        q.enqueue(start)
+        q.enqueue(starting_vertex)
 
         #set for visited nodes
         has_been_visited = set()
 
         #ensure the queue is not empty
-        while q.size > 0:
+        while q.size() > 0:
             # dequeue, add value to 'has_been_visited', apppend neighbors that aren't visited
-            vis = q.dequeue()
+            v = q.dequeue()
 
-            if vis not in has_been_visited:
-                vis.add(vis)
-                print(vis)
-                for neighbor in self.get_neighbors(vis):
+            if v not in has_been_visited:
+                has_been_visited.add(v)
+                print(v)
+                for neighbor in self.get_neighbors(v):
                     q.enqueue(neighbor)
 
-        
 
     def dft(self, starting_vertex):
-        """
-        Print each vertex in depth-first order
-        beginning from starting_vertex.
-        """
-        pass  # TODO
+        #init
+        s = Stack()
+        s.push(starting_vertex)
+        visited = set()
+
+        #ensure stack is not empty
+        while s.size() > 0:
+            #if not pop node, append to visited, add neighbors that arent'visited (like BFT)
+            v = s.pop()
+            if v not in visited:
+                visited.add(v)
+                print(v)
+                for neighbor in self.get_neighbors(v):
+                    s.push(neighbor)
+
+
 
     def dft_recursive(self, starting_vertex):
         """
