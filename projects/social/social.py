@@ -21,8 +21,8 @@ class User:
 class SocialGraph:
     def __init__(self):
     	self.last_id = 0
-        self.users = {}
-        self.friendships = {}
+    	self.users = {}
+    	self.friendships = {}
 
     def add_friendship(self, user_id, friend_id):
         """
@@ -45,6 +45,7 @@ class SocialGraph:
         self.friendships[self.last_id] = set()
 
 	def populate_graph(self, num_users, avg_friendships):
+		#reset
     	self.reset()
 
         # Add users
@@ -52,7 +53,7 @@ class SocialGraph:
             self.add_user(f"User {i}")
 
         # Create friendships
-        possible_friendships = []
+    	possible_friendships = []
 
         for user_id in self.users:
             for friend_id in range(user_id + 1, self.last_id + 1):
