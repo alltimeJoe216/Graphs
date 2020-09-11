@@ -25,18 +25,19 @@ def earliest_ancestor(ancestors, starting_node):
 	graph = {}
 
 	# graph will maintain O(n) over ancestors
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     

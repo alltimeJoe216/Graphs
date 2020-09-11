@@ -1,9 +1,23 @@
 from room import Room
 from player import Player
 from world import World
+from copy import copy
 
 import random
 from ast import literal_eval
+
+class Queue():
+    def __init__(self):
+        self.queue = []
+    def enqueue(self, value):
+        self.queue.append(value)
+    def dequeue(self):
+        if self.size() > 0:
+            return self.queue.pop()
+        else:
+            return None
+    def size(self):
+        return len(self.queue)
 
 # Load world
 world = World()
